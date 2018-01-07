@@ -1,0 +1,11 @@
+<div *ngFor="let message of webService.messagesObservable | async">
+  <mat-card class="card">
+    <mat-card-title [routerLink]="['/messages', message.owner]">
+      {{message.owner}}
+    </mat-card-title>
+    <mat-card-content> 
+      {{message.message}}
+    </mat-card-content>
+  </mat-card>
+
+</div>

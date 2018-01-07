@@ -1,0 +1,20 @@
+<mat-card>
+    <mat-card-title>
+      User Details
+    </mat-card-title>
+    <form [formGroup]="form" (ngSubmit) = "onSubmit()">
+      <span class="error" *ngIf="invalidLogin">Invalid email or password</span>
+      <br/>
+        <mat-input-container>
+          <input type="text" matInput [(ngModel)]="user.firstname" style="width: 350px;" [ngClass]="{'error' : isValid('firstname')}" formControlName="firstname" placeholder="First Name" required>
+        </mat-input-container>
+        <br/>
+        <mat-input-container>
+          <input type="text" matInput [(ngModel)]="user.lastname" style="width: 350px;" [ngClass]="{'error' : isValid('lastname')}" formControlName="lastname" placeholder="Last Name">
+        </mat-input-container>
+        <br/>
+        
+        <button mat-raised-button color="primary">Update</button>
+    </form>
+
+</mat-card>

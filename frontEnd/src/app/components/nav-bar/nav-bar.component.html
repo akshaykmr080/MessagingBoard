@@ -1,0 +1,15 @@
+<mat-toolbar color="primary">
+  Message Board
+  <button mat-button routerLink="/">Home</button>
+  <button mat-button routerLink="/messages">Messages</button>
+  <span style="flex: 1 1 auto"></span>
+  <div  *ngIf= "!auth.isAuthenticated; else welcome">
+    <button mat-button routerLink="/login">Login</button>
+    <button mat-button routerLink="/register">Register</button>
+  </div>
+  <ng-template #welcome>
+    <button mat-button routerLink="/users/me">Welcome {{auth.name | lowercase}}</button>
+    <button  mat-button (click)="auth.logout()">Logout</button>
+  </ng-template>
+  
+</mat-toolbar>

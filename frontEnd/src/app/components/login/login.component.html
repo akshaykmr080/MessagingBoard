@@ -1,0 +1,20 @@
+<mat-card >
+    <mat-card-title>
+      Login
+    </mat-card-title>
+    <form [formGroup]="form" (ngSubmit) = "onSubmit()">
+      <span class="error" *ngIf="invalidLogin">Invalid email or password</span>
+      <br/>
+        <mat-input-container>
+          <input type="email" matInput style="width: 350px;" [ngClass]="{'error' : isValid('email')}" formControlName="email" placeholder="Email" required>
+        </mat-input-container>
+        <br/>
+        <mat-input-container>
+          <input type="password" matInput style="width: 350px;" [ngClass]="{'error' : isValid('password')}" formControlName="password" placeholder="password" required>
+        </mat-input-container>
+        <br/>
+        
+        <button mat-raised-button color="primary">Login</button>
+    </form>
+
+</mat-card>
